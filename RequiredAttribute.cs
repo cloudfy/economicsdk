@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public class RequiredAttribute : Attribute
     {

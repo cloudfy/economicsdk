@@ -23,10 +23,15 @@ namespace EconomicSDK {
 
         #region === LIST ===
         /// <summary></summary>
+        /// <param name="pagesize"></param>
+        /// <param name="skippages"></param>
         /// <returns>EcnomicApi.Economic.Objects.CollectionOfCustomer</returns>
-        public CollectionOfCustomer List()
+        public CollectionOfCustomer List(int skippages = -1, int pagesize = 20)
         {
-            string url = _client.GetUrl("/customers/");
+            if (pagesize > 1000)
+                throw new ArgumentOutOfRangeException("Maximum pagesize is 1.000");
+
+            string url = _client.GetUrl("/customers/?pagesize=" + pagesize);
 
             try
             {
@@ -133,7 +138,36 @@ namespace EconomicSDK {
         }
         #endregion
 
-        #region === Temaplte === 
+        #region === DEL ===
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public bool Delete(Customer customer)
+        {
+            string url = _client.GetUrl("/customers/" + customer.customerNumber );
+
+            try
+            {
+                var response = JsonClient.Delete(url, _client.GetHeaders());
+                return response;
+            }
+            catch (JsonClientException e)
+            {
+                if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    return false;
+                
+                throw _client.CreateException(e);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region === Template === 
         public Invoice TemplateInvoice(Customer customer)
         {
             string url = _client.GetUrl("/customers/" + customer.customerNumber + "/templates/invoice");

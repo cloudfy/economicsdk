@@ -179,7 +179,7 @@ namespace EconomicSDK
             {
                 using (var response = (HttpWebResponse)request.GetResponse())
                 {
-                    if (response.StatusCode == HttpStatusCode.OK | response.StatusCode == HttpStatusCode.Created)
+                    if (response.StatusCode == HttpStatusCode.OK | response.StatusCode == HttpStatusCode.Created | response.StatusCode == HttpStatusCode.NoContent)
                     {
                         return ReadResponse(response.GetResponseStream());
                     }

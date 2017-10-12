@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
+    <Compile Include="EconomicException.cs" />
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="Managers\CustomerManager.cs" />
@@ -95,6 +96,7 @@
   <ItemGroup>
     <None Include="LICENSE" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

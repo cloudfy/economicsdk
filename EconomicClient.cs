@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Runtime.Serialization;
 
 namespace EconomicSDK
 {
@@ -128,7 +129,20 @@ namespace EconomicSDK
             headers.Add("Accept", "application/json; charset=UTF-8");
 
             return headers;
+        }        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        internal Exception CreateException(JsonClientException e)
+        {
+            var eo = Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+
+            return new EconomicException(eo, e);
         }
         #endregion
     }
+
 }
