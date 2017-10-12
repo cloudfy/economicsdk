@@ -118,6 +118,7 @@ namespace EconomicSDK
         }
         #endregion
 
+        #region === REQUEST ===
         /// <summary></summary>
         /// <param name="method"></param>
         /// <param name="url"></param>
@@ -200,6 +201,7 @@ namespace EconomicSDK
                 throw e;
             }
         }
+        #endregion
 
         /// <summary>
         /// 

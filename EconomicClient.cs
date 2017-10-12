@@ -42,8 +42,9 @@ namespace EconomicSDK
         public static string GetDate(DateTime d)
         {
             return d.ToString("yyyy-MM-dd");
-        }        
+        }
 
+        #region === manager prooperties ===
         /// <summary></summary>
         public ProductManager Products
         {
@@ -80,6 +81,9 @@ namespace EconomicSDK
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public VatZoneManager VatZones
         {
             get
@@ -90,7 +94,9 @@ namespace EconomicSDK
                 return _vatZones;
             }
         }
+        #endregion
 
+        #region === internals ===
         /// <summary></summary>
         /// <param name="path"></param>
         /// <returns>string</returns>
@@ -123,5 +129,6 @@ namespace EconomicSDK
 
             return headers;
         }
+        #endregion
     }
 }

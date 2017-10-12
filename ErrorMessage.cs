@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EconomicSDK
 {
     /// <summary></summary>
-    class ErrorMessage
+    internal class ErrorMessage
     {
         /// <summary></summary>
         public string message { get; set; }
