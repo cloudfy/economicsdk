@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EconomicSDK { 
+namespace EconomicSDK {
+    
     /// <summary></summary>
     public class FilterPart
     {
