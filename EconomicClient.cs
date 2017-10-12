@@ -19,11 +19,13 @@ namespace EconomicSDK
         private ProductManager _productManager;
         /// <summary></summary>
         private VatZoneManager _vatZones;
-
+        /// <summary></summary>
+        private CustomerGroupManager _customerGroupManager;
         /// <summary></summary>
         private string _grantToken;
         /// <summary></summary>
         private string _secretToken;
+        
         #endregion
 
         #region === constructor ===
@@ -67,6 +69,18 @@ namespace EconomicSDK
                     _customerManager = new CustomerManager(this);
 
                 return _customerManager;
+            }
+        }
+
+        /// <summary></summary>
+        public CustomerGroupManager CustomerGroups
+        {
+            get
+            {
+                if (_customerGroupManager == null)
+                    _customerGroupManager = new CustomerGroupManager(this);
+
+                return _customerGroupManager;
             }
         }
 

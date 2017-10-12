@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
     <Compile Include="EconomicException.cs" />
+    <Compile Include="Managers\CustomerGroupManager.cs" />
+    <Compile Include="Objects\CollectionOfCustomerGroup.cs" />
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="Managers\CustomerManager.cs" />
