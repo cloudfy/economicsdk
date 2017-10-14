@@ -11,11 +11,11 @@ namespace EconomicSDK {
     {
         #region === constructor ===
         /// <summary></summary>
-        private EconomicClient _client;
+        private EconomicService _client;
 
         /// <summary></summary>
         /// <param name="client"></param>
-        public CustomerManager(EconomicClient client)
+        public CustomerManager(EconomicService client)
         {
             _client = client;
         }

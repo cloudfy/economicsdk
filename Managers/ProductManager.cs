@@ -13,7 +13,7 @@ namespace EconomicSDK
         #region === constructor ===
         /// <summary></summary>
         /// <param name="client"></param>
-        internal ProductManager(EconomicClient client) : base(client)
+        internal ProductManager(EconomicService client) : base(client)
         {
         }
         #endregion
@@ -138,13 +138,13 @@ namespace EconomicSDK
     }
 
     public abstract class BaseManager {
-        private EconomicClient _client;
-        internal BaseManager(EconomicClient client)
+        private EconomicService _client;
+        internal BaseManager(EconomicService client)
         {
             _client = client;
         }
 
-        internal EconomicClient Client
+        internal EconomicService Client
         {
             get
             {

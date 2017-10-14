@@ -10,7 +10,7 @@ namespace EconomicSDK
 
     public class AccountMananger : GenericManager<Account>
     {
-        internal AccountMananger(EconomicClient client) : base(client, "/accounts")
+        internal AccountMananger(EconomicService client) : base(client, "/accounts")
         {
         }
         public override bool Delete(Account obj, int id)

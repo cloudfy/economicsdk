@@ -1,4 +1,4 @@
-# E-Cconomic SDK
+# E-conomic SDK
 SDK to integrate with e-conomic, online provider of ERP. 
 
 ## Getting started (before you code)
@@ -10,3 +10,9 @@ To get a development token aka secret token, please visit the following url:
 
 ## Using the SDK
 Use the EconomicClient object as the main entry point.
+
+```
+EconomicClient client = new EconomicClient(grantToken, secretToken);
+client...
+
+```

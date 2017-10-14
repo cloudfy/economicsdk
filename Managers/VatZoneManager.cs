@@ -16,7 +16,7 @@ namespace EconomicSDK
         /// 
         /// </summary>
         /// <param name="client"></param>
-        internal VatZoneManager(EconomicClient client) : base(client)
+        internal VatZoneManager(EconomicService client) : base(client)
         {
         }
 

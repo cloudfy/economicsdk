@@ -22,10 +22,10 @@ namespace EconomicSDK
     {
         #region === constructor ===
         /// <summary></summary>
-        internal EconomicClient _client;
+        internal EconomicService _client;
         private string _baseUrl;
 
-        internal GenericManager(EconomicClient client, string baseUrl)
+        internal GenericManager(EconomicService client, string baseUrl)
         {
             _client = client;
             _baseUrl = baseUrl;

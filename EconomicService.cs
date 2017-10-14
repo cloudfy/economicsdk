@@ -4,8 +4,8 @@ using System.Runtime.Serialization;
 
 namespace EconomicSDK
 {
-    /// <summary></summary>
-    public class EconomicClient
+    /// <summary>Provides access to the e-conomic API and methods.</summary>
+    public sealed class EconomicService
     {
         #region === member variables ===
         /// <summary></summary>
@@ -26,16 +26,22 @@ namespace EconomicSDK
         /// <summary></summary>
         private string _grantToken;
         /// <summary></summary>
-        private string _secretToken;
-        
+        private string _secretToken;        
         #endregion
 
         #region === constructor ===
-        /// <summary></summary>
-        /// <param name="grantToken"></param>
-        /// <param name="secretToken"></param>
-        public EconomicClient(string grantToken, string secretToken)
+        /// <summary>
+        /// Initializes a new instance of the Economic service class.
+        /// </summary>
+        /// <param name="grantToken">Grand token of the E-conomic client instance after adding the app.</param>
+        /// <param name="secretToken">Secret token provided upon registrering the application.</param>
+        public EconomicService(string grantToken, string secretToken)
         {
+            if (string.IsNullOrEmpty(grantToken))
+                throw new ArgumentNullException("GrantToken");
+            if (string.IsNullOrEmpty(secretToken))
+                throw new ArgumentNullException("SecretToken");
+
             _grantToken = grantToken;
             _secretToken = secretToken;
         }
@@ -61,7 +67,7 @@ namespace EconomicSDK
                 return _productManager;
             }
         }
-
+        /// <summary></summary>
         public AccountMananger Accounts
         {
             get
@@ -72,6 +78,7 @@ namespace EconomicSDK
                 return _acocuntsManager;
             }
         }
+        /// <summary></summary>
         public AppsManager Apps
         {
             get

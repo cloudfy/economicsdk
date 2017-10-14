@@ -56,7 +56,7 @@
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="Managers\CustomerManager.cs" />
-    <Compile Include="EconomicClient.cs" />
+    <Compile Include="EconomicService.cs" />
     <Compile Include="FilterPart.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Managers\InvoiceManager.cs" />
