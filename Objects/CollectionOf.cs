@@ -17,15 +17,25 @@ namespace EconomicSDK.Objects
         public MetaData metaData { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class MetaData
     {
+        /// <summary></summary>
         public CreateMeta create { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateMeta
     {
+        /// <summary></summary>
         public string description { get; set; }
+        /// <summary></summary>
         public string href { get; set; }
+        /// <summary></summary>
         public string httpMethod { get; set; }
     }
 

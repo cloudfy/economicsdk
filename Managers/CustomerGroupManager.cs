@@ -24,6 +24,7 @@ namespace EconomicSDK
         }
         #endregion
 
+        #region === GET ===
         /// <summary>
         /// 
         /// </summary>
@@ -50,7 +51,9 @@ namespace EconomicSDK
                 throw e;
             }
         }
+        #endregion
 
+        #region === POST ===
         /// <summary></summary>
         /// <param name="c"></param>
         /// <returns>EcnomicApi.Economic.Objects.CustomerGroup</returns>
@@ -72,7 +75,9 @@ namespace EconomicSDK
                 throw;
             }
         }
+        #endregion
 
+        #region === LIST ===
         /// <summary>
         /// 
         /// </summary>
@@ -117,5 +122,6 @@ namespace EconomicSDK
                 throw;
             }
         }
+        #endregion
     }
 }

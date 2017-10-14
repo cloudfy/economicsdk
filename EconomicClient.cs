@@ -12,6 +12,8 @@ namespace EconomicSDK
         private const string apiUrl = "https://restapi.e-conomic.com";
 
         /// <summary></summary>
+        private AccountsMananger _acocuntsManager;
+        /// <summary></summary>
         private CustomerManager _customerManager;
         /// <summary></summary>
         private InvoiceManager _invoiceManager;
@@ -57,6 +59,24 @@ namespace EconomicSDK
                     _productManager = new ProductManager(this);
 
                 return _productManager;
+            }
+        }
+
+        public AccountMananger Accounts
+        {
+            get
+            {
+                if (_acocuntsManager == null)
+                    _acocuntsManager = new AccountMananger(this);
+
+                return _acocuntsManager;
+            }
+        }
+        public AppsManager Apps
+        {
+            get
+            {
+                return new AppsManager();
             }
         }
 
