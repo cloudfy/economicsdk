@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class VatZoneManager : BaseManager
     {
         /// <summary>

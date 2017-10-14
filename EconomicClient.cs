@@ -12,7 +12,7 @@ namespace EconomicSDK
         private const string apiUrl = "https://restapi.e-conomic.com";
 
         /// <summary></summary>
-        private AccountsMananger _acocuntsManager;
+        private AccountMananger _acocuntsManager;
         /// <summary></summary>
         private CustomerManager _customerManager;
         /// <summary></summary>

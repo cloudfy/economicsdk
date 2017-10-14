@@ -10,7 +10,8 @@ using Newtonsoft.Json;
 
 namespace EconomicSDK
 {
-    /// <summary></summary>
+    /// <summary>
+    /// </summary>
     internal static class JsonClient
     {
         /// <summary>Converts a string into a base64 string.</summary>
@@ -217,28 +218,4 @@ namespace EconomicSDK
         }
     }
 
-    /// <summary></summary>
-    public class JsonClientException : Exception
-    {
-        private System.Net.HttpStatusCode _statusCode;
-
-        /// <summary></summary>
-        /// <param name="message"></param>
-        /// <param name="statusCode"></param>
-        public JsonClientException(string message, System.Net.HttpStatusCode statusCode) : base(message)
-        {
-            _statusCode = statusCode;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public HttpStatusCode StatusCode
-        {
-            get
-            {
-                return _statusCode;
-            }
-        }
-    }
 }

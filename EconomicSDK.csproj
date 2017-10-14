@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
     <Compile Include="EconomicException.cs" />
-    <Compile Include="Managers\AccountsMananger.cs" />
+    <Compile Include="Http\JsonClientException.cs" />
+    <Compile Include="Managers\AccountMananger.cs" />
+    <Compile Include="Managers\AppsManager.cs" />
     <Compile Include="Managers\CustomerGroupManager.cs" />
     <Compile Include="Managers\GenericManager.cs" />
     <Compile Include="Objects\AccountingYear.cs" />
@@ -94,7 +96,7 @@
     <Compile Include="Objects\VatZone.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Validation\ObjectValidation.cs" />
-    <Compile Include="JsonClient.cs" />
+    <Compile Include="Http\JsonClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiredAttribute.cs" />
   </ItemGroup>
