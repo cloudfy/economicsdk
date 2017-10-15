@@ -12,7 +12,7 @@ To get a development token aka secret token, please visit the following url:
 Use the EconomicClient object as the main entry point.
 
 ```
-EconomicClient client = new EconomicClient(grantToken, secretToken);
+EconomicService client = new EconomicService(grantToken, secretToken);
 client...
 
 ```

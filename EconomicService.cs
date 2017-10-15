@@ -26,7 +26,8 @@ namespace EconomicSDK
         /// <summary></summary>
         private string _grantToken;
         /// <summary></summary>
-        private string _secretToken;        
+        private string _secretToken;
+        private AppsManager _appsManager;
         #endregion
 
         #region === constructor ===
@@ -83,7 +84,10 @@ namespace EconomicSDK
         {
             get
             {
-                return new AppsManager();
+                if (_appsManager == null)
+                    _appsManager = new AppsManager(this, "/apps/");
+
+                return _appsManager;
             }
         }
 

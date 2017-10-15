@@ -46,12 +46,17 @@
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
     <Compile Include="EconomicException.cs" />
+    <Compile Include="Generic\GenericCollectionOf.cs" />
+    <Compile Include="Generic\ReadGenericManager.cs" />
+    <Compile Include="Generic\ReadWriteGenericManager.cs" />
     <Compile Include="Http\JsonClientException.cs" />
     <Compile Include="Managers\AccountMananger.cs" />
     <Compile Include="Managers\AppsManager.cs" />
     <Compile Include="Managers\CustomerGroupManager.cs" />
-    <Compile Include="Managers\GenericManager.cs" />
+    <Compile Include="Generic\GenericManager.cs" />
+    <Compile Include="Objects\Account.cs" />
     <Compile Include="Objects\AccountingYear.cs" />
+    <Compile Include="Objects\App.cs" />
     <Compile Include="Objects\CollectionOfCustomerGroup.cs" />
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
@@ -105,6 +110,7 @@
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

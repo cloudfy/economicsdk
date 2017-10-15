@@ -12,15 +12,4 @@
         public string name { get; set; }        
     }
 
-    public class Account : BaseObject
-    {
-        public object accountingYears { get; set; }
-        public object accountNumber { get; set; }
-        public object accountType { get; set; }
-        public object balance { get; set; }
-        public object blockDirectEntries { get; set; }
-        public object debitCredit { get; set; }
-        public object name { get; set; }
-
-    }
 }
