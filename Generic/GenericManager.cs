@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK
 {
+    /// <summary></summary>
     public abstract class GenericManager<T>
     {
         #region === constructor ===
@@ -14,6 +15,7 @@ namespace EconomicSDK
         internal EconomicService _client;
         private string _baseUrl;
 
+        /// <summary></summary>
         internal GenericManager(EconomicService client, string baseUrl)
         {
             _client = client;
@@ -21,6 +23,7 @@ namespace EconomicSDK
         }
         #endregion
 
+        /// <summary></summary>
         internal string BaseUrl
         {
             get
@@ -29,6 +32,7 @@ namespace EconomicSDK
             }
         }
 
+        /// <summary></summary>
         internal RT Retrieve<RT>(string url)
         {
             try

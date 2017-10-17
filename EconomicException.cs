@@ -22,25 +22,25 @@ namespace EconomicSDK
         public EconomicException()
         {
         }
-
+        /// <summary></summary>
         public EconomicException(string message) : base(message)
         {
         }
-
+        /// <summary></summary>
         public EconomicException(ErrorMessage eo, JsonClientException e) : base(eo.message)
         {
             this.eo = eo;
             this.e = e;
         }
-
+        /// <summary></summary>
         public EconomicException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
+        /// <summary></summary>
         protected EconomicException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
-
+        /// <summary></summary>
         public ErrorMessage ErrorMessage
         {
             get

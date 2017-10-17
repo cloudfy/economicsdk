@@ -5,7 +5,9 @@
     {
         /// <summary></summary>
         public int layoutNumber { get; set; }
+        /// <summary></summary>
         public string name { get; set; }
+        /// <summary></summary>
         public bool deleted { get; set; }
     }
 }

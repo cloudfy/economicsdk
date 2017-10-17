@@ -22,13 +22,13 @@ namespace EconomicSDK
 
         /// <summary></summary>
         /// <returns>EcnomicApi.Economic.Objects.CollectionOfProduct</returns>
-        public CollectionOfVatZone List()
+        public CollectionOf<VatZone> List()
         {
             string url = this.Client.GetUrl("/vat-zones/");
 
             try
             {
-                var response = JsonClient.Get<CollectionOfVatZone>(url, Client.GetHeaders());
+                var response = JsonClient.Get<CollectionOf<VatZone>>(url, Client.GetHeaders());
                 return response;
             }
             catch

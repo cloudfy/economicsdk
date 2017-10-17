@@ -40,7 +40,7 @@ namespace EconomicSDK
         /// <summary></summary>
         /// <param name="productNumber"></param>
         /// <returns>EcnomicApi.Economic.Objects.CollectionOfProductPricing</returns>
-        public CollectionOfProductPricing GetCurrencySpecificSalesPrices(string productNumber)
+        public CollectionOf<ProductPricing> GetCurrencySpecificSalesPrices(string productNumber)
         {
             if (string.IsNullOrEmpty(productNumber))
                 throw new ArgumentNullException("ProductNumber");
@@ -49,7 +49,7 @@ namespace EconomicSDK
 
             try
             {
-                var response = JsonClient.Get<CollectionOfProductPricing>(url, Client.GetHeaders());
+                var response = JsonClient.Get<CollectionOf<ProductPricing>>(url, Client.GetHeaders());
                 return response;
             }
             catch

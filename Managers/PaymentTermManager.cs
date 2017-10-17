@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK
 {
+    /// <summary></summary>
     public class PaymentTermManager : ReadWriteGenericManager<PaymentTerms>
     {
+        /// <summary></summary>
         public PaymentTermManager(EconomicService client, string baseUrl) : base(client, baseUrl)
         {
 

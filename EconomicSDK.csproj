@@ -76,8 +76,6 @@
     <Compile Include="Objects\CollectionOfInvoice.cs" />
     <Compile Include="Objects\CollectionOfLayout.cs" />
     <Compile Include="Objects\CollectionOfProduct.cs" />
-    <Compile Include="Objects\CollectionOfProductPricing.cs" />
-    <Compile Include="Objects\CollectionOfVatZone.cs" />
     <Compile Include="Objects\Currency.cs" />
     <Compile Include="Objects\Customer.cs" />
     <Compile Include="Objects\CustomerContact.cs" />

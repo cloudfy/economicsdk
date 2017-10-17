@@ -7,6 +7,7 @@ using System.Reflection;
 
 namespace EconomicSDK.Validation
 {
+    /// <summary></summary>
     internal static class ObjectValidation
     {
         /// <summary>

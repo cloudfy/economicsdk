@@ -3,6 +3,7 @@
     /// <summary></summary>
     public class InvoiceLine
     {
+        /// <summary></summary>
         public InvoiceLine()
         {
             discountPercentage = 0;
