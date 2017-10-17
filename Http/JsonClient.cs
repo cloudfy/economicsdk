@@ -204,6 +204,7 @@ namespace EconomicSDK
         }
         #endregion
 
+        #region === statics ===
         /// <summary>
         /// 
         /// </summary>
@@ -216,6 +217,6 @@ namespace EconomicSDK
                 return reader.ReadToEnd();
             }
         }
+        #endregion
     }
-
 }

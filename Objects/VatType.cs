@@ -16,5 +16,4 @@ namespace EconomicSDK.Objects
     {
 
     }
-
 }

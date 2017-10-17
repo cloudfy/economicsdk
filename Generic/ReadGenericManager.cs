@@ -13,6 +13,7 @@ namespace EconomicSDK
     /// <typeparam name="T"></typeparam>
     public abstract class ReadGenericManager<T> : GenericManager<T>
     {
+        #region === constructor ===
         /// <summary>
         /// 
         /// </summary>
@@ -22,6 +23,7 @@ namespace EconomicSDK
         {
 
         }
+        #endregion
 
         /// <summary>
         /// 

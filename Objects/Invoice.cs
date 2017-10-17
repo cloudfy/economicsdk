@@ -18,8 +18,9 @@
             netAmountInBaseCurrency = 0;
             costPriceInBaseCurrency = 0;
         }
-
+        /// <summary></summary>
         public int draftInvoiceNumber { get; set; }
+        /// <summary></summary>
         public int bookedInvoiceNumber { get; set; }
         /// <summary></summary>
         [Required]

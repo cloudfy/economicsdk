@@ -19,7 +19,6 @@ namespace EconomicSDK
         /// <param name="baseUrl"></param>
         public VatAccountManager(EconomicService client, string baseUrl) : base(client, "/vat-accounts/")
         {
-
         }
     }
 }
