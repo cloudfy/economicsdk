@@ -54,6 +54,8 @@
     <Compile Include="Managers\AppsManager.cs" />
     <Compile Include="Managers\CustomerGroupManager.cs" />
     <Compile Include="Generic\GenericManager.cs" />
+    <Compile Include="Managers\PaymentTermManager.cs" />
+    <Compile Include="Managers\VatAccountManager.cs" />
     <Compile Include="Objects\Account.cs" />
     <Compile Include="Objects\AccountingYear.cs" />
     <Compile Include="Objects\App.cs" />
@@ -96,8 +98,11 @@
     <Compile Include="Objects\Project.cs" />
     <Compile Include="Objects\Recipient.cs" />
     <Compile Include="Objects\Reference.cs" />
+    <Compile Include="Objects\Role.cs" />
     <Compile Include="Objects\Templates.cs" />
     <Compile Include="Objects\Unit.cs" />
+    <Compile Include="Objects\VatAccount.cs" />
+    <Compile Include="Objects\VatType.cs" />
     <Compile Include="Objects\VatZone.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Validation\ObjectValidation.cs" />

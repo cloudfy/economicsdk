@@ -5,11 +5,17 @@ using System.Runtime.Serialization;
 namespace EconomicSDK
 {
     /// <summary>Provides access to the e-conomic API and methods.</summary>
+    /// <remarks></remarks>
     public sealed class EconomicService
     {
         #region === member variables ===
         /// <summary></summary>
         private const string apiUrl = "https://restapi.e-conomic.com";
+
+        /// <summary></summary>
+        private string _grantToken;
+        /// <summary></summary>
+        private string _secretToken;
 
         /// <summary></summary>
         private AccountMananger _acocuntsManager;
@@ -20,14 +26,15 @@ namespace EconomicSDK
         /// <summary></summary>
         private ProductManager _productManager;
         /// <summary></summary>
+        private PaymentTermManager _paymentTerms;
+        /// <summary></summary>
         private VatZoneManager _vatZones;
         /// <summary></summary>
         private CustomerGroupManager _customerGroupManager;
         /// <summary></summary>
-        private string _grantToken;
-        /// <summary></summary>
-        private string _secretToken;
         private AppsManager _appsManager;
+        /// <summary></summary>
+        private VatAccountManager _vatAccounts;
         #endregion
 
         #region === constructor ===
@@ -48,6 +55,7 @@ namespace EconomicSDK
         }
         #endregion
 
+        #region === static methods ===
         /// <summary></summary>
         /// <param name="d"></param>
         /// <returns>string</returns>
@@ -55,6 +63,7 @@ namespace EconomicSDK
         {
             return d.ToString("yyyy-MM-dd");
         }
+#endregion
 
         #region === manager prooperties ===
         /// <summary></summary>
@@ -85,7 +94,7 @@ namespace EconomicSDK
             get
             {
                 if (_appsManager == null)
-                    _appsManager = new AppsManager(this, "/apps/");
+                    _appsManager = new AppsManager(this, "/apps");
 
                 return _appsManager;
             }
@@ -138,6 +147,31 @@ namespace EconomicSDK
                     _vatZones = new VatZoneManager(this);
 
                 return _vatZones;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PaymentTermManager PaymentTerms
+        {
+            get
+            {
+                if (_paymentTerms == null)
+                    _paymentTerms = new PaymentTermManager(this, "/payment-terms");
+
+                return _paymentTerms;
+            }
+        }
+
+        public VatAccountManager VatAccounts
+        {
+            get
+            {
+                if (_vatAccounts == null)
+                    _vatAccounts = new VatAccountManager(this, "/vat-accounts/");
+
+                return _vatAccounts;
             }
         }
         #endregion
