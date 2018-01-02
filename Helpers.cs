@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK
 {
-    /// <summary></summary>
+    /// <summary>Economic SDK Helper methods.</summary>
     internal class Helpers
     {
-        /// <summary></summary>
+        /// <summary>
+        /// Collects filters for query.
+        /// </summary>
         /// <param name="parts"></param>
         /// <param name="filter"></param>
         /// <returns>string</returns>

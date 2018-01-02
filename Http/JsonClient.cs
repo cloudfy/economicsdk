@@ -11,32 +11,35 @@ using Newtonsoft.Json;
 namespace EconomicSDK
 {
     /// <summary>
+    /// Provides HTTP serialization and access to REST based APIs.
     /// </summary>
     internal static class JsonClient
     {
+        #region === static methods ===
         /// <summary>Converts a string into a base64 string.</summary>
         /// <param name="input">String to convert.</param>
         /// <returns>string</returns>
         public static string ToBase64(string input)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(input));
-        }
+        } 
+        #endregion
 
         #region === PUT ===
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="body"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized PUT method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="body">Body of the request.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>string</returns>
         public static string Put(string url, string body, StringDictionary headers)
         {
             return ExecuteRequest("PUT", url, body, headers);
         }
 
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="requestBody"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized PUT method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="requestBody">Body of the request.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>TResponse</returns>
         public static TResponse Put<TResponse>(string url, string requestBody, StringDictionary headers)
         {
@@ -44,10 +47,10 @@ namespace EconomicSDK
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody, GetJsonSerializerSettings());
         }
 
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="request"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized PUT method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="request">Request of the method.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>TResponse</returns>
         public static TResponse Put<TRequest, TResponse>(string url, TRequest request, StringDictionary headers)
         {
@@ -56,20 +59,20 @@ namespace EconomicSDK
         #endregion
 
         #region === POST ===
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="body"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized POST method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="body">Body of the request.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>string</returns>
         public static string Post(string url, string body, StringDictionary headers)
         {
             return ExecuteRequest("POST", url, body, headers);
         }
 
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="requestBody"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized POST method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="requestBody">Body of the request.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>TResponse</returns>
         public static TResponse Post<TResponse>(string url, string requestBody, StringDictionary headers)
         {
@@ -77,10 +80,10 @@ namespace EconomicSDK
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody, GetJsonSerializerSettings());
         }
 
-        /// <summary></summary>
-        /// <param name="url"></param>
-        /// <param name="request"></param>
-        /// <param name="headers"></param>
+        /// <summary>Provides a serialized POST method for an API.</summary>
+        /// <param name="url">Url of the request.</param>
+        /// <param name="request">Body of the request.</param>
+        /// <param name="headers">HTTP headers of the request.</param>
         /// <returns>TResponse</returns>
         public static TResponse Post<TRequest, TResponse>(string url, TRequest request, StringDictionary headers)
         {
@@ -204,9 +207,9 @@ namespace EconomicSDK
 
         #region === statics ===
         /// <summary>
-        /// 
+        /// Reads the response stream.
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="s">Stream to read.</param>
         /// <returns></returns>
         private static string ReadResponse(Stream s)
         {
@@ -217,7 +220,7 @@ namespace EconomicSDK
         }
 
         /// <summary>
-        /// 
+        /// Returns common serialization settings.
         /// </summary>
         /// <returns></returns>
         private static JsonSerializerSettings GetJsonSerializerSettings()

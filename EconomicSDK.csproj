@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
-    <Compile Include="Actions\BookInvoiceWithNumberRequest.cs" />
     <Compile Include="EconomicException.cs" />
     <Compile Include="Generic\GenericCollectionOf.cs" />
     <Compile Include="Generic\ReadGenericManager.cs" />
@@ -110,7 +109,9 @@
     <Compile Include="Objects\VatType.cs" />
     <Compile Include="Objects\VatZone.cs" />
     <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="Objects\VoucherEntries.cs" />
     <Compile Include="Objects\VoucherNumbers.cs" />
+    <Compile Include="Objects\Vouchers.cs" />
     <Compile Include="Validation\ObjectValidation.cs" />
     <Compile Include="Http\JsonClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
