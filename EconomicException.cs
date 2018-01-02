@@ -9,13 +9,13 @@ namespace EconomicSDK
     /// <summary>
     /// 
     /// </summary>
-
     [Serializable]
     public class EconomicException : Exception
     {
         private ErrorMessage eo;
         private JsonClientException e;
 
+        #region === constructor ===
         /// <summary>
         /// 
         /// </summary>
@@ -39,7 +39,9 @@ namespace EconomicSDK
         /// <summary></summary>
         protected EconomicException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-        }
+        } 
+        #endregion
+
         /// <summary></summary>
         public ErrorMessage ErrorMessage
         {

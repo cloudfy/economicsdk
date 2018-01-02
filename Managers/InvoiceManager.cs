@@ -58,10 +58,37 @@ namespace EconomicSDK
         }
 
         /// <summary></summary>
+        /// <param name="options"></param>
         /// <returns>EcnomicApi.Economic.Objects.CollectionOfInvoice</returns>
-        public CollectionOfInvoice ListDrafts()
+        public CollectionOfInvoice ListDrafts(ViewOptions options = null)
         {
             string url = _client.GetUrl("/invoices/drafts");
+
+            if (options != null)
+                options.AppendTo(ref url);
+
+            try
+            {
+                var response = JsonClient.Get<CollectionOfInvoice>(url, _client.GetHeaders());
+                return response;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public CollectionOfInvoice ListBooked(ViewOptions options = null)
+        {
+            string url = _client.GetUrl("/invoices/booked?sort=-bookedInvoiceNumber");
+
+            if (options != null)
+                options.AppendTo(ref url);
 
             try
             {
@@ -112,6 +139,32 @@ namespace EconomicSDK
         public Invoice Book(Invoice invoice)
         {
             return Book(BookInvoiceRequest.FromInvoice(invoice));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bookInvoiceRequest"></param>
+        /// <returns></returns>
+        public Invoice BookWithNumber(BookInvoiceRequest bookInvoiceRequest)
+        {
+            if (!bookInvoiceRequest.bookWithNumber.HasValue)
+                throw new ArgumentNullException("Book with number method, MUST have a book with number");
+
+            string url = _client.GetUrl("/invoices/booked/" + bookInvoiceRequest.bookWithNumber);
+
+            try
+            {
+                var response = JsonClient.Put<BookInvoiceRequest, Invoice>(url
+                    , bookInvoiceRequest
+                    , _client.GetHeaders());
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>

@@ -28,6 +28,8 @@ namespace EconomicSDK
         /// <summary></summary>
         private PaymentTermManager _paymentTerms;
         /// <summary></summary>
+        private JournalManager _journalManager;
+        /// <summary></summary>
         private VatZoneManager _vatZones;
         /// <summary></summary>
         private CustomerGroupManager _customerGroupManager;
@@ -63,7 +65,7 @@ namespace EconomicSDK
         {
             return d.ToString("yyyy-MM-dd");
         }
-#endregion
+        #endregion
 
         #region === manager prooperties ===
         /// <summary></summary>
@@ -88,6 +90,16 @@ namespace EconomicSDK
                 return _acocuntsManager;
             }
         }
+        public JournalManager Journals
+        {
+            get
+            {
+                if (_journalManager == null)
+                    _journalManager = new JournalManager(this);
+
+                return _journalManager;
+            }
+        }
         /// <summary></summary>
         public AppsManager Apps
         {
@@ -99,7 +111,6 @@ namespace EconomicSDK
                 return _appsManager;
             }
         }
-
         /// <summary></summary>
         public CustomerManager Customers
         {
@@ -111,7 +122,6 @@ namespace EconomicSDK
                 return _customerManager;
             }
         }
-
         /// <summary></summary>
         public CustomerGroupManager CustomerGroups
         {

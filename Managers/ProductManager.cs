@@ -117,10 +117,14 @@ namespace EconomicSDK
 
         #region === LIST ===
         /// <summary></summary>
+        /// <param name="options"></param>
         /// <returns>EcnomicApi.Economic.Objects.CollectionOfProduct</returns>
-        public CollectionOfProduct List()
+        public CollectionOfProduct List(ViewOptions options = null)
         {
             string url = this.Client.GetUrl("/products/");
+
+            if (options != null)
+                options.AppendTo(ref url);
 
             try
             {
@@ -134,7 +138,28 @@ namespace EconomicSDK
         }
         #endregion
 
+        #region === POST ===
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public Product Create(Product p)
+        {
+            throw new NotImplementedException();
+            //string url = Client.GetUrl("/products/" + productNumber);
 
+            //try
+            //{
+            //    var response = JsonClient.Get<Product>(url, Client.GetHeaders());
+            //    return response;
+            //}
+            //catch
+            //{
+            //    throw;
+            //}
+        }
+        #endregion
     }
 
     public abstract class BaseManager {

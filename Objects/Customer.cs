@@ -4,10 +4,14 @@
     /// <remarks>https://restapi.e-conomic.com/schema/customers.get.schema.json#_ga=2.194911405.1672410647.1498480545-669799220.1496955321</remarks>
     public class Customer : BaseObject
     {
+        #region === constructor ===
         /// <summary></summary>
         public Customer()
         {
         }
+        #endregion
+
+        #region === properties ===
         /// <summary></summary>
         [Required]
         public string currency { get; set; }
@@ -68,6 +72,7 @@
         public int? customerNumber { get; set; }
         /// <summary></summary>
         [Required]
-        public VatZone vatZone { get; set; }
+        public VatZone vatZone { get; set; } 
+        #endregion
     }
 }

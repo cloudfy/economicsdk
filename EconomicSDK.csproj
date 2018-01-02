@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\BookInvoiceRequest.cs" />
+    <Compile Include="Actions\BookInvoiceWithNumberRequest.cs" />
     <Compile Include="EconomicException.cs" />
     <Compile Include="Generic\GenericCollectionOf.cs" />
     <Compile Include="Generic\ReadGenericManager.cs" />
@@ -54,12 +55,16 @@
     <Compile Include="Managers\AppsManager.cs" />
     <Compile Include="Managers\CustomerGroupManager.cs" />
     <Compile Include="Generic\GenericManager.cs" />
+    <Compile Include="Managers\JournalManager.cs" />
     <Compile Include="Managers\PaymentTermManager.cs" />
     <Compile Include="Managers\VatAccountManager.cs" />
     <Compile Include="Objects\Account.cs" />
     <Compile Include="Objects\AccountingYear.cs" />
     <Compile Include="Objects\App.cs" />
     <Compile Include="Objects\CollectionOfCustomerGroup.cs" />
+    <Compile Include="Objects\CollectionOfJournal.cs" />
+    <Compile Include="Objects\CollectionOfVouchers.cs" />
+    <Compile Include="Objects\ContraAccounts.cs" />
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="Managers\CustomerManager.cs" />
@@ -86,6 +91,8 @@
     <Compile Include="Objects\Invoice.cs" />
     <Compile Include="Objects\InvoiceLine.cs" />
     <Compile Include="Objects\Invoices.cs" />
+    <Compile Include="Objects\Journal.cs" />
+    <Compile Include="Objects\JournalSettings.cs" />
     <Compile Include="Objects\Layout.cs" />
     <Compile Include="Objects\Notes.cs" />
     <Compile Include="Objects\Pagination.cs" />
@@ -103,10 +110,12 @@
     <Compile Include="Objects\VatType.cs" />
     <Compile Include="Objects\VatZone.cs" />
     <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="Objects\VoucherNumbers.cs" />
     <Compile Include="Validation\ObjectValidation.cs" />
     <Compile Include="Http\JsonClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiredAttribute.cs" />
+    <Compile Include="ViewOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />

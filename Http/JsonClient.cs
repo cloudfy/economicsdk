@@ -41,7 +41,7 @@ namespace EconomicSDK
         public static TResponse Put<TResponse>(string url, string requestBody, StringDictionary headers)
         {
             string responseBody = ExecuteRequest("PUT", url, requestBody, headers);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody, GetJsonSerializerSettings());
         }
 
         /// <summary></summary>
@@ -74,7 +74,7 @@ namespace EconomicSDK
         public static TResponse Post<TResponse>(string url, string requestBody, StringDictionary headers)
         {
             string responseBody = ExecuteRequest("POST", url, requestBody, headers);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody, GetJsonSerializerSettings());
         }
 
         /// <summary></summary>
@@ -130,14 +130,12 @@ namespace EconomicSDK
         {
             string requestBody = Newtonsoft.Json.JsonConvert.SerializeObject(request,
                 Newtonsoft.Json.Formatting.None,
-                new JsonSerializerSettings
-                {
-                    NullValueHandling = NullValueHandling.Ignore
-                });
+                GetJsonSerializerSettings()
+            );
 
             string responseBody = ExecuteRequest(method, url, requestBody, headers);
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(responseBody, GetJsonSerializerSettings());
         }
 
         /// <summary></summary>
@@ -216,6 +214,15 @@ namespace EconomicSDK
             {
                 return reader.ReadToEnd();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private static JsonSerializerSettings GetJsonSerializerSettings()
+        {
+            return new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
         }
         #endregion
     }

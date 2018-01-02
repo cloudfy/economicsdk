@@ -5,8 +5,13 @@ namespace EconomicSDK.Actions
     /// <summary>
     /// 
     /// </summary>
+    /// <see cref="https://restdocs.e-conomic.com/#post-invoices-booked"/>
     public class BookInvoiceRequest
     {
+        public const string SENDBY_EAN = "ean";
+        public const string SENDBY_MOBILEPAY = "mobilepay";
+        public const string SENDBY_NONE = "none";
+
         /// <summary>
         /// Book an invoice post a draftInvoice wrapped in an object as such.
         /// </summary>
@@ -26,7 +31,7 @@ namespace EconomicSDK.Actions
         /// </summary>
         /// <param name="invoice"></param>
         /// <returns></returns>
-        public static BookInvoiceRequest FromInvoice(Invoice invoice)
+        public static BookInvoiceRequest FromInvoice(Invoice invoice, string sendby = "", int? withNumber = null)
         {
             return new BookInvoiceRequest
             {
@@ -34,7 +39,9 @@ namespace EconomicSDK.Actions
                 {
                     draftInvoiceNumber = invoice.draftInvoiceNumber,
                     self = invoice.self
-                }
+                },
+                sendBy = sendby,
+                bookWithNumber = withNumber
             };
         }
     }
