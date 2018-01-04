@@ -26,14 +26,54 @@ namespace EconomicSDK
         /// <summary></summary>
         public string developerHint { get; set; }
         /// <summary></summary>
-        public Guid logId { get; set; }
+        public Guid? logId { get; set; }
         /// <summary></summary>
-        public int httpStatusCode { get; set; }
+        public int? httpStatusCode { get; set; }
         /// <summary></summary>
-        public string[] errors { get; set; }
+        public Errors errors { get; set; }
         /// <summary></summary>
-        public DateTime logTime { get; set; }
+        public DateTime? logTime { get; set; }
         /// <summary></summary>
         public string schemaPath { get; set; }
+        /// <summary></summary>
+        public int? errorCount { get; set; }
     }
+    /// <summary></summary>
+    public class Errors
+    {
+        public ErrorLines lines { get; set; }
+    }
+    /// <summary></summary>
+    public class Error
+    {
+        /// <summary></summary>
+        public string errorMessage { get; set; }
+        /// <summary></summary>
+        public string errorCode { get; set; }
+        /// <summary></summary>
+        public string inputValue { get; set; }
+        /// <summary></summary>
+        public string developerHint { get; set; }
+    }
+    /// <summary></summary>
+    public class ProductError
+    {
+        /// <summary></summary>
+        public List<Error> errors { get; set; }
+    }
+    /// <summary></summary>
+    public class ErrorItem
+    {
+        /// <summary></summary>
+        public int? arrayIndex { get; set; }
+        /// <summary></summary>
+        public ProductError product { get; set; }
+    }
+    /// <summary></summary>
+    public class ErrorLines
+    {
+        /// <summary></summary>
+        public List<ErrorItem> items { get; set; }
+    }
+
 }

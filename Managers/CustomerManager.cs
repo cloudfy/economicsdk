@@ -1,4 +1,5 @@
 ﻿using EconomicSDK.Objects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,9 +132,14 @@ namespace EconomicSDK {
 
                 return response;
             }
-            catch
+            catch (JsonClientException e)
             {
-                throw;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
         #endregion

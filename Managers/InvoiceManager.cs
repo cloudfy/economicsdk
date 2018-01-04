@@ -1,5 +1,6 @@
 ﻿using EconomicSDK.Actions;
 using EconomicSDK.Objects;
+using Newtonsoft.Json;
 using System;
 
 namespace EconomicSDK
@@ -32,9 +33,14 @@ namespace EconomicSDK
                 var response = JsonClient.Get<Invoice>(url, _client.GetHeaders());
                 return response;
             }
-            catch
+            catch (JsonClientException e)
             {
-                throw;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
         #endregion
@@ -72,9 +78,14 @@ namespace EconomicSDK
                 var response = JsonClient.Get<CollectionOfInvoice>(url, _client.GetHeaders());
                 return response;
             }
-            catch
+            catch (JsonClientException e)
             {
-                throw;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
@@ -95,9 +106,14 @@ namespace EconomicSDK
                 var response = JsonClient.Get<CollectionOfInvoice>(url, _client.GetHeaders());
                 return response;
             }
-            catch
+            catch (JsonClientException e)
             {
-                throw;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
         #endregion
@@ -108,6 +124,7 @@ namespace EconomicSDK
         /// </summary>
         /// <param name="invoice"></param>
         /// <returns></returns>
+        /// <exception cref="EconomicException"></exception>
         public Invoice Create(Invoice invoice)
         {
             string url = _client.GetUrl("/invoices/drafts");
@@ -119,9 +136,8 @@ namespace EconomicSDK
             }
             catch (JsonClientException e)
             {
-                var msg = Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
-                msg = msg;
-                throw e;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
             }
             catch (Exception e)
             {
@@ -146,6 +162,7 @@ namespace EconomicSDK
         /// </summary>
         /// <param name="bookInvoiceRequest"></param>
         /// <returns></returns>
+        /// <exception cref="EconomicException"></exception>
         public Invoice BookWithNumber(BookInvoiceRequest bookInvoiceRequest)
         {
             if (!bookInvoiceRequest.bookWithNumber.HasValue)
@@ -161,6 +178,11 @@ namespace EconomicSDK
 
                 return response;
             }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
             catch (Exception e)
             {
                 throw e;
@@ -171,6 +193,7 @@ namespace EconomicSDK
         /// Books a draft invoice. If the operation is successful, this returns the full booked invoice.
         /// </summary>
         /// <param name="bookInvoiceRequest"></param>
+        /// <exception cref="EconomicException"></exception>
         public Invoice Book(BookInvoiceRequest bookInvoiceRequest)
         {
             string url = _client.GetUrl("/invoices/booked/");
@@ -182,6 +205,11 @@ namespace EconomicSDK
                     , _client.GetHeaders());
 
                 return response;
+            }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
             }
             catch (Exception e)
             {
@@ -203,9 +231,14 @@ namespace EconomicSDK
                 var response = JsonClient.Get<CollectionOfLayout>(url, _client.GetHeaders());
                 return response;
             }
-            catch
+            catch (JsonClientException e)
             {
-                throw;
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
     }
