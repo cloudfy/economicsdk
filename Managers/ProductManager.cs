@@ -144,20 +144,19 @@ namespace EconomicSDK
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public Product Create(Product p)
+        public Product Create(Product product)
         {
-            throw new NotImplementedException();
-            //string url = Client.GetUrl("/products/" + productNumber);
+            string url = Client.GetUrl("/products/");
 
-            //try
-            //{
-            //    var response = JsonClient.Get<Product>(url, Client.GetHeaders());
-            //    return response;
-            //}
-            //catch
-            //{
-            //    throw;
-            //}
+            try
+            {
+                var response = JsonClient.Post<Product, Product>(url, product, Client.GetHeaders());
+                return response;
+            }
+            catch
+            {
+                throw;
+            }
         }
         #endregion
     }

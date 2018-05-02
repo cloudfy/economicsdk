@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK.Objects
 {
-    /// <summary></summary>
-    public class CollectionOfCustomer : CollectionOf<Customer>
+    public class CollectionOfContact : CollectionOf<Contact>
     {
     }
-
 }

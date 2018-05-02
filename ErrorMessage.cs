@@ -42,6 +42,7 @@ namespace EconomicSDK
     public class Errors
     {
         public ErrorLines lines { get; set; }
+        public ProductError currency { get; set; }
     }
     /// <summary></summary>
     public class Error
@@ -60,7 +61,7 @@ namespace EconomicSDK
     {
         /// <summary></summary>
         public List<Error> errors { get; set; }
-    }
+    }    
     /// <summary></summary>
     public class ErrorItem
     {

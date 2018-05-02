@@ -1,4 +1,6 @@
-﻿namespace EconomicSDK.Objects
+﻿using System;
+
+namespace EconomicSDK.Objects
 {
     /// <summary></summary>
     public class Reference : BaseObject

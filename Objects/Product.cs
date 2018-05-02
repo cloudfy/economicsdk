@@ -27,6 +27,9 @@
         public decimal salesPrice { get; set; }
         /// <summary></summary>
         public decimal recommendedPrice { get; set; }
-
+        /// <summary></summary>
+        public DepartmentalDistribution departmentalDistribution { get; set; }
+        /// <summary></summary>
+        public ProductGroup productGroup { get; set; }
     }
 }

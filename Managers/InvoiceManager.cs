@@ -43,6 +43,131 @@ namespace EconomicSDK
                 throw e;
             }
         }
+        /// <summary>
+        /// Delete a draft invoice based in draft invoice number.
+        /// </summary>
+        /// <param name="invoiceNumber">Draft invoice number.</param>
+        /// <returns>True when deleted successfully.</returns>
+        public bool DeleteDraft(int invoiceNumber)
+        {
+            string url = _client.GetUrl("/invoices/drafts/" + invoiceNumber);
+
+            try
+            {
+                var response = JsonClient.Delete(url, _client.GetHeaders());
+                return response;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        /// <summary>
+        /// Delete a draft invoice based in draft invoice object.
+        /// </summary>
+        /// <param name="invoice">Draft invoice object.</param>
+        /// <returns>True when deleted successfully.</returns>
+        public bool DeleteDraft(Invoice invoice)
+        {
+            return DeleteDraft(invoice.draftInvoiceNumber);
+        }
+
+        /// <summary>
+        /// Downloads a booked Pdf.
+        /// </summary>
+        /// <param name="invoiceNumber"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool DownloadBookedPdf(int invoiceNumber, string fileName)
+        {
+            if (invoiceNumber <= 0)
+                throw new ArgumentOutOfRangeException("invoiceNumber");
+            if (string.IsNullOrEmpty(fileName))
+                throw new ArgumentNullException("fileName");
+
+            string url = _client.GetUrl("/invoices/booked/" + invoiceNumber + "/pdf");
+
+            try
+            {
+                // use a web client
+                System.Net.WebClient wc = new System.Net.WebClient();
+                var headers = _client.GetHeaders();
+                foreach (string h in headers.Keys)
+                    wc.Headers.Add(h, headers[h]);
+                // binary download
+                wc.DownloadFile(url, fileName);
+                return true;
+            }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        /// <summary>
+        /// Downloads a draft Pdf.
+        /// </summary>
+        /// <param name="invoiceNumber"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool DownloadDraftPdf(int invoiceNumber, string fileName)
+        {
+            if (invoiceNumber <= 0)
+                throw new ArgumentOutOfRangeException("invoiceNumber");
+            if (string.IsNullOrEmpty(fileName))
+                throw new ArgumentNullException("fileName");
+
+            string url = _client.GetUrl("/invoices/drafts/" + invoiceNumber + "/pdf");
+
+            try
+            {
+                // use a web client
+                System.Net.WebClient wc = new System.Net.WebClient();
+                var headers = _client.GetHeaders();
+                foreach (string h in headers.Keys)
+                    wc.Headers.Add(h, headers[h]);
+                // binary download
+                wc.DownloadFile(url, fileName);
+                return true;
+            }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="invoiceNumber"></param>
+        /// <returns></returns>
+        public Invoice GetBooked(int invoiceNumber)
+        {
+            string url = _client.GetUrl("/invoices/booked/" + invoiceNumber);
+
+            try
+            {
+                var response = JsonClient.Get<Invoice>(url, _client.GetHeaders());
+                return response;
+            }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         #endregion
         
         #region === LIST ===

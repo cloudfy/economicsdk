@@ -4,6 +4,6 @@
     public class CustomerContact : BaseObject
     {
         /// <summary></summary>
-        public int customerContactnumber { get; set; }
+        public int? customerContactNumber { get; set; }
     }
 }

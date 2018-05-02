@@ -79,6 +79,14 @@ namespace EconomicSDK
 
         #region === manager prooperties ===
         /// <summary></summary>
+        public ContactManager Contacts
+        {
+            get
+            {
+                return new ContactManager(this);
+            }
+        }
+        /// <summary></summary>
         public ProductManager Products
         {
             get

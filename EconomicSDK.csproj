@@ -52,6 +52,7 @@
     <Compile Include="Http\JsonClientException.cs" />
     <Compile Include="Managers\AccountMananger.cs" />
     <Compile Include="Managers\AppsManager.cs" />
+    <Compile Include="Managers\ContactManager.cs" />
     <Compile Include="Managers\CustomerGroupManager.cs" />
     <Compile Include="Generic\GenericManager.cs" />
     <Compile Include="Managers\JournalManager.cs" />
@@ -60,10 +61,14 @@
     <Compile Include="Objects\Account.cs" />
     <Compile Include="Objects\AccountingYear.cs" />
     <Compile Include="Objects\App.cs" />
+    <Compile Include="Objects\CollectionOfContact.cs" />
     <Compile Include="Objects\CollectionOfCustomerGroup.cs" />
     <Compile Include="Objects\CollectionOfJournal.cs" />
+    <Compile Include="Objects\CollectionOfVatZone.cs" />
     <Compile Include="Objects\CollectionOfVouchers.cs" />
+    <Compile Include="Objects\Contact.cs" />
     <Compile Include="Objects\ContraAccounts.cs" />
+    <Compile Include="Objects\DepartmentalDistribution.cs" />
     <Compile Include="Objects\DraftInvoice.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="Managers\CustomerManager.cs" />
@@ -98,6 +103,7 @@
     <Compile Include="Objects\PaymentTerms.cs" />
     <Compile Include="Objects\Person.cs" />
     <Compile Include="Objects\Product.cs" />
+    <Compile Include="Objects\ProductGroup.cs" />
     <Compile Include="Objects\ProductPricing.cs" />
     <Compile Include="Objects\Project.cs" />
     <Compile Include="Objects\Recipient.cs" />
