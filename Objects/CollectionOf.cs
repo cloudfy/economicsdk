@@ -24,6 +24,7 @@ namespace EconomicSDK.Objects
     {
         /// <summary></summary>
         public CreateMeta create { get; set; }
+        public DeleteMeta delete { get; set; }
     }
 
     /// <summary>
@@ -39,4 +40,10 @@ namespace EconomicSDK.Objects
         public string httpMethod { get; set; }
     }
 
+    public class DeleteMeta
+    {
+        public string description { get; set; }
+        public string href { get; set; }
+        public string httpMethod { get; set; }
+    }
 }

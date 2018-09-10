@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace EconomicSDK.Objects
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class VoucherEntries
     {
-        public Array financeVouchers { get; set; }
-        public Array customerPayments { get; set; }
-        public Array supplierInvoices { get; set; }
-        public Array supplierPayments { get; set; }
-        public Array manualCustomerInvoices { get; set; }
-    }
+        /// <summary>
+        /// 
+        /// </summary>
+        public VoucherEntries()
+        {
+            financeVouchers = new List<FinanceVoucher>();
+        }
+        /// <summary></summary>
+        public IList<FinanceVoucher> financeVouchers { get; set; } // FinanceVoucher[] 
 
+        //public Array customerPayments { get; set; }
+        //public Array supplierInvoices { get; set; }
+        //public Array supplierPayments { get; set; }
+        //public Array manualCustomerInvoices { get; set; }
+    }
 }

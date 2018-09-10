@@ -8,6 +8,8 @@
  *  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 */
 
+using EconomicSDK.Objects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Specialized;
 using System.Runtime.Serialization;
@@ -76,6 +78,30 @@ namespace EconomicSDK
             return d.ToString("yyyy-MM-dd");
         }
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Self Self()
+        {
+            string url = GetUrl("/self/");
+
+            try
+            {
+                var response = JsonClient.Get<Self>(url, GetHeaders());
+                return response;
+            }
+            catch (JsonClientException e)
+            {
+                var errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(e.Message);
+                throw new EconomicException(errorMessage, e);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
         #region === manager prooperties ===
         /// <summary></summary>

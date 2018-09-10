@@ -8,6 +8,7 @@
  *  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 */
 
+using System;
 using EconomicSDK.Objects;
 
 namespace EconomicSDK.Actions
@@ -61,7 +62,7 @@ namespace EconomicSDK.Actions
                 sendBy = sendby,
                 bookWithNumber = withNumber
             };
-        } 
+        }
         #endregion
     }
 }

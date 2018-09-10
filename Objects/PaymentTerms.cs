@@ -11,10 +11,10 @@ namespace EconomicSDK.Objects
         /// <summary></summary>
         public int paymentTermsNumber { get; set; }
         /// <summary></summary>
-        public int daysOfCredit { get; set; }
+        public int? daysOfCredit { get; set; }
         /// <summary></summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public paymentTermsTypeEnum paymentTermsType { get; private set; }
+        public paymentTermsTypeEnum? paymentTermsType { get; private set; }
         /// <summary></summary>
         public string name { get; set; }
         /// <summary></summary>

@@ -241,6 +241,17 @@ namespace EconomicSDK
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="draftInvoice"></param>
+        /// <param name="invoiceNumeric"></param>
+        /// <param name="sendBy"></param>
+        public Invoice BookWithNumber(Invoice draftInvoice, int invoiceNumeric, string sendBy)
+        {
+            return BookWithNumber(BookInvoiceRequest.FromInvoice(draftInvoice, sendBy, invoiceNumeric));
+        }
         #endregion
 
         #region === CREATE ===

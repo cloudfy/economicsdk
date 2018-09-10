@@ -121,5 +121,46 @@ namespace EconomicSDK
                 throw;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="journalNumber"></param>
+        /// <param name="newW"></param>
+        public void CreateVouchers(int journalNumber, Vouchers newW)
+        {
+            string url = _client.GetUrl("/journals-experimental/{0}/vouchers", journalNumber);
+            try
+            {
+                var response = JsonClient.Post<Vouchers, Vouchers>(url, newW, _client.GetHeaders());
+            }
+            catch (Newtonsoft.Json.JsonSerializationException ex)
+            {
+                Console.WriteLine("Response serialization issue");
+                //throw ex;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="journalNumber"></param>
+        /// <param name="voucherNumber"></param>
+        public void DeleteVouchers(int journalNumber, int voucherNumber)
+        {
+            string url = _client.GetUrl("/journals-experimental/{0}/entries/{1}", journalNumber, voucherNumber);
+            try
+            {
+                var response = JsonClient.Delete(url, _client.GetHeaders());
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

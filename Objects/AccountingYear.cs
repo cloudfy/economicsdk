@@ -20,7 +20,7 @@ namespace EconomicSDK.Objects
         /// <summary></summary>
         public string vouchers { get; set; }
         /// <summary></summary>
-        public bool closed { get; set; }
+        public bool? closed { get; set; }
         /// <summary></summary>
         public string fromDate { get; set; }
         /// <summary></summary>
